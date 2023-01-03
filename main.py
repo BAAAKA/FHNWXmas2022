@@ -10,7 +10,7 @@ def main():
     lightPositions, totLen, direction = shootLight(field)
     print(lightPositions)
 
-    futureSteps = 2
+    futureSteps = 3
     iterations = 40
     for i in range(iterations):
         toc = time.perf_counter()
@@ -19,7 +19,8 @@ def main():
         if i == 1: print(f"Prob gonna take {(toc - tic)*50/60} Minutes")
         elif i == 5: print(f"Prob gonna take {(toc - tic)*10/60} Minutes")
 
-        if futureSteps>(iterations-i)-1:
+        remainingSteps = (iterations-i)-1
+        if futureSteps>remainingSteps:
             print(f"Futuresteps is {futureSteps}, lowering it to {iterations-i-1}")
             futureSteps = iterations-i-1
 

@@ -49,6 +49,7 @@ def findBreakpoint(field, pos, directions, direction, breakPoints, createLights=
 
         if symbol in ["<", ">", "^", "v", "#", "B", "S"]:
             #print(f"  [findBreakpoint] Searching {direction}, ended at {pos}, totLen {totLen}, blocked by {symbol}")
+
             return lastPos, pos, field, totLen, symbol, lightPositions
         if createLights:
             field[pos[0]][pos[1]] = "*"
@@ -92,7 +93,6 @@ def testSignleDirection(tField, row, col, pos, futureSteps, direction):
         futureSteps -= 1
         totLen, futurePos, futureDirection = testLightDirections(tempLightPositions, tField, lastDirection,
                                                 futureSteps)  # Figures out the best of the lightPositions
-        #print(f"Another loop showed me that it can lead up to length {totLen}")
     return (totLen, pos, direction)
 
 def testLightDirections(lightPositions, field, direction, futureSteps = 1):
