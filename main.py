@@ -10,7 +10,7 @@ def main():
     lightPositions, totLen, direction = shootLight(field)
     print(lightPositions)
 
-    futureSteps = 3
+    futureSteps = 5
     iterations = 40
     for i in range(iterations):
         toc = time.perf_counter()
@@ -27,8 +27,8 @@ def main():
         n, pos, direction = testLightDirections(lightPositions, field, direction, futureSteps) # Figures out the best of the lightPositions
 
         field[pos[0]][pos[1]] = direction
-        lightPositions, totLen, direction = shootLight(field, False, False)
-        print(f"lightPositions are {lightPositions}")
+        lightPositions, totLen, direction = shootLight(field, True, True)
+        #print(f"lightPositions are {lightPositions}")
 
 
     print("==========================================Final Print==========================================")

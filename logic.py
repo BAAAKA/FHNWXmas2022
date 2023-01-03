@@ -25,7 +25,11 @@ def printField(field):
     print("")
     for row in range(len(field)):
         for col in range(len(field[0])):
-            print(field[row][col], end='')
+            symbol = field[row][col]
+            if symbol == "*": print("\033[1;93m" + symbol + "\033[0m", end="")
+            elif symbol == "#": print("\033[1;107m" + symbol + "\033[0m", end="")
+            elif symbol in ["<", ">", "^", "v"]: print("\033[1;91m" + symbol + "\033[0m", end="")
+            else: print(field[row][col], end='')
         print("")
 
 ######################################
@@ -96,6 +100,7 @@ def testSignleDirection(tField, row, col, pos, futureSteps, direction):
     return (totLen, pos, direction)
 
 def testLightDirections(lightPositions, field, direction, futureSteps = 1):
+    ### shootLight(field, True, True)
     bestDirections = []
     #print(f"[loopAllLightpositions] starting with {lightPositions} in {direction}")
     for pos in lightPositions:
