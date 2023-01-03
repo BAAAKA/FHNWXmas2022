@@ -10,7 +10,7 @@ def main():
     lightPositions, totLen, direction = shootLight(field)
     print(lightPositions)
 
-    futureSteps = 4
+    futureSteps = 2
     iterations = 40
     for i in range(iterations):
         toc = time.perf_counter()
